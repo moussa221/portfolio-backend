@@ -22,6 +22,9 @@ app.use(cors(corsOptions));
 // Middleware pour les requêtes OPTIONS (pré-vol)
 app.options('*', cors(corsOptions));
 
+// Middleware CORS (Frontend séparé)
+app.use(require('cors')({ origin: true }));
+
 app.use(express.json());
 
 // Route pour vérifier que le serveur fonctionne
