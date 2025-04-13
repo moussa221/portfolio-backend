@@ -12,10 +12,15 @@ const corsOptions = {
     'http://localhost:3000'
   ],
   methods: ['POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type']
+  allowedHeaders: ['Content-Type'],
+  credentials: true,
+  optionsSuccessStatus: 200 // Pour les requêtes OPTIONS
 };
 
 app.use(cors(corsOptions));
+
+// Middleware pour les requêtes OPTIONS (pré-vol)
+app.options('*', cors(corsOptions));
 
 app.use(express.json());
 
