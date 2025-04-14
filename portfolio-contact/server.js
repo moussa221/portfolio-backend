@@ -20,7 +20,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Middleware pour les requêtes OPTIONS (pré-vol)
-app.options('*', cors(corsOptions));
+app.options(/(.*)/, cors(corsOptions));
 
 app.use(express.json());
 
