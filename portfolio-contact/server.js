@@ -8,7 +8,7 @@ const app = express();
 // Configuration CORS plus sécurisée
 const corsOptions = {
   origin: [
-    'https://my-portfolio-moussa-thiams-projects.vercel.app/',
+    'https://my-portfolio-moussa-thiams-projects.vercel.app',
     'http://localhost:3000'
   ],
   methods: ['POST', 'OPTIONS'],
@@ -21,9 +21,6 @@ app.use(cors(corsOptions));
 
 // Middleware pour les requêtes OPTIONS (pré-vol)
 app.options('*', cors(corsOptions));
-
-// Middleware CORS (Frontend séparé)
-app.use(require('cors')({ origin: true }));
 
 app.use(express.json());
 
