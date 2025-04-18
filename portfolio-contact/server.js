@@ -49,10 +49,10 @@ app.post('/send-email', async (req, res) => {
     await transporter.sendMail({
       from: email,
       to: process.env.EMAIL_USER,
-      subject: `[PORTFOLIO] ${subject}`,
+      subject: `[PORTFOLIO] :${subject}`,
       text: `De: ${name}\nEmail: ${email}\n\n${message}`,
       html: `
-        <h2>Nouveau message depuis votre portfolio</h2>
+        <h2>Nouveau message depuis mon portfolio</h2>
         <p><strong>De:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Sujet:</strong> ${subject}</p>
