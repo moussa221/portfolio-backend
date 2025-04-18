@@ -37,6 +37,12 @@ app.post('/send-email', async (req, res) => {
     return res.status(400).json({ success: false, message: 'Tous les champs sont requis' });
   }
 
+  // Vérifie que l'email est valide
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    return res.status(400).json({ error: 'Adresse email invalide.' });
+  }
+
   try {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
